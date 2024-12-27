@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<div class="wave"></div>
+    <div class="container mt-5">
+        <div class="text-center mb-5 p-4 bg-white rounded shadow">
+            <h1 class="display-4 mb-3">Welcome to Your Admin Dashboard</h1>
+            <p class="lead text-muted">Empowering you to manage every aspect of your restaurant seamlessly. From reservations to orders, menu updates, staff schedules, and insightful reports, this dashboard is your central hub for efficient operations.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Reservations -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow border-0 hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="bi bi-calendar-check text-primary display-4 mb-3"></i>
+                        <h5 class="card-title h4">Reservations</h5>
+                        <p class="card-text text-muted mb-4">View and manage all restaurant reservations.</p>
+                        <a asp-controller="Reservations" asp-action="Index" class="btn btn-primary">View Reservations</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow border-0 hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="bi bi-cart-check text-success display-4 mb-3"></i>
+                        <h5 class="card-title h4">Orders</h5>
+                        <p class="card-text text-muted mb-4">Manage customer orders and track order status.</p>
+                        <a asp-controller="Orders" asp-action="Index" class="btn btn-success">View Orders</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Management -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow border-0 hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="bi bi-menu-button-wide text-info display-4 mb-3"></i>
+                        <h5 class="card-title h4">Menu Management</h5>
+                        <p class="card-text text-muted mb-4">Update menu items, prices, and availability.</p>
+                        <a asp-controller="Admin" asp-action="Menu" class="btn btn-info">Manage Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Management -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow border-0 hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="bi bi-people text-warning display-4 mb-3"></i>
+                        <h5 class="card-title h4">Staff Management</h5>
+                        <p class="card-text text-muted mb-4">Manage staff schedules and assignments.</p>
+                        <a asp-controller="Admin" asp-action="Staff" class="btn btn-warning">Manage Staff</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow border-0 hover-card">
+                    <div class="card-body text-center p-5">
+                        <i class="bi bi-graph-up text-danger display-4 mb-3"></i>
+                        <h5 class="card-title h4">Reports</h5>
+                        <p class="card-text text-muted mb-4">View sales reports and analytics.</p>
+                        <a asp-controller="Admin" asp-action="Report" class="btn btn-danger">View Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    html {
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+    }
+
+    body {
+        background: linear-gradient(135deg, #9FE2BF 0%, #40B5AD 100%);
+        min-height: 100vh;
+        padding: 20px 0;
+        position: relative;
+        overflow-x: hidden;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .wave {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        flex: 1 0 auto;
+        margin-bottom: 80px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: none;
+    }
+
+    .hover-card {
+        transition: all 0.3s ease;
+    }
+
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.15) !important;
+    }
+
+    .text-center.mb-5.p-4 {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    /* Button styles */
+    .btn {
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(64, 181, 173, 0.3);
+    }
+
+    
+    .bg-pattern {
+        display: none;
+    }
+
+    
+    .text-primary { color: #40B5AD !important; }
+    .text-success { color: #2E8B57 !important; }
+    .text-info { color: #20B2AA !important; }
+    .text-warning { color: #DAA520 !important; }
+    .text-danger { color: #CD5C5C !important; }
+
+    
+    .btn-primary { background-color: #40B5AD; border-color: #40B5AD; }
+    .btn-success { background-color: #2E8B57; border-color: #2E8B57; }
+    .btn-info { background-color: #20B2AA; border-color: #20B2AA; }
+    .btn-warning { background-color: #DAA520; border-color: #DAA520; }
+    .btn-danger { background-color: #CD5C5C; border-color: #CD5C5C; }
+
+    .display-4 {
+        color: #40B5AD;
+        font-weight: 600;
+    }
+
+    
+    .text-center.mb-5.p-4 {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        z-index: 1;
+    }
+
+    .footer-text {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    .footer a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+    footer .container {
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Adjust main container to account for navbar */
+    .container.mt-5 {
+        margin-top: 80px !important; /* Increased to account for fixed navbar */
+        padding-top: 20px;
+    }
+
+    main {
+        margin-top: 1rem;
+    }
+</style>

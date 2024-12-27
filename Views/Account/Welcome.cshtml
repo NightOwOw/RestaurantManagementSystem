@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Restaurant Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #9FE2BF 0%, #40B5AD 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .welcome-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            position: relative;
+        }
+
+        .btn {
+            padding: 0.8rem 2.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: #40B5AD;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background: #379690;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(64, 181, 173, 0.3);
+            }
+
+        .btn-outline-primary {
+            border: 2px solid #40B5AD;
+            color: #40B5AD;
+        }
+
+            .btn-outline-primary:hover {
+                background: #40B5AD;
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(64, 181, 173, 0.2);
+            }
+
+        .lead {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .display-4 {
+            color: #40B5AD;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wave"></div>
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="welcome-content text-center">
+            <h1 class="display-4">Welcome to Restaurant System</h1>
+            <p class="lead">Streamline your restaurant's operations, from reservations to orders, with a system designed for efficiency and success.</p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a href="/Account/Login?role=admin" class="btn btn-primary">
+                    Login as Admin
+                </a>
+                <a href="/Account/Login?role=user" class="btn btn-outline-primary">
+                    Login as User
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

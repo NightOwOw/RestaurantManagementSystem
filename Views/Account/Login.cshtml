@@ -1,0 +1,122 @@
+﻿@model RestaurantSystem.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Restaurant Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #9FE2BF 0%, #40B5AD 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .login-icon {
+            color: #40B5AD;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-title {
+            color: #40B5AD;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+        }
+
+            .form-control:focus {
+                border-color: #40B5AD;
+                box-shadow: 0 0 0 0.2rem rgba(64, 181, 173, 0.25);
+            }
+
+        .btn-login {
+            background: #40B5AD;
+            border: none;
+            border-radius: 30px;
+            padding: 0.8rem 2rem;
+            color: white;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+            .btn-login:hover {
+                background: #379690;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(64, 181, 173, 0.3);
+            }
+
+        .text-danger {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wave"></div>
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="login-container">
+            <div class="text-center">
+                <i class="bi bi-building login-icon"></i>
+                <h2 class="login-title">Welcome Back</h2>
+            </div>
+            <form asp-action="Login" method="post">
+                <input type="hidden" name="role" value="@ViewBag.Role" />
+
+                <div class="mb-3">
+                    <input asp-for="Username" class="form-control" placeholder="Username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-login">Sign In</button>
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger mt-3 text-center">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</body>
+</html>
